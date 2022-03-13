@@ -1,0 +1,74 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<VBox fx:controller="clients.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center">
+
+<MenuBar>
+    <Menu text="Меню">
+       <MenuItem fx:id="logInMenu" text="Войти" onAction="#showTheLoginPanel"/>
+        <MenuItem fx:id="authorizationMenu" text="Авторизироваться" onAction="#showTheAuthorizationPanel"/>
+        <MenuItem fx:id="nicknameChangeMenu" text="Изменить Логин" onAction="#showTheLoginChangePanel"/>
+        <MenuItem fx:id="exitMenu" text="Выйти" onAction="#showTheExitPanel"/>
+        <MenuItem fx:id="theMenuForReturningToTheChat" text="Вернуться в чат" onAction="#showTheChatPanel"/>
+    </Menu>
+
+</MenuBar>
+    <HBox VBox.vgrow="ALWAYS">
+        <TextArea fx:id="thePanelForDisplayingMessagesOnTheScreen" VBox.vgrow="ALWAYS" editable="false" HBox.hgrow="ALWAYS"/>
+        <ListView fx:id="windowForDisplayingTheListOfOnlineClients"  minWidth="75" maxWidth="75" visible="false"  managed="false"/>
+
+
+    </HBox>
+
+
+
+
+
+
+
+
+    <HBox fx:id="authorizationPanel" visible="false" managed="false">
+        <TextField fx:id="authorizationPanelMessageEntryWindow1" promptText="авториз" HBox.hgrow="ALWAYS" onAction="#sendMsgAuthorization"/>
+        <TextField fx:id="authorizationPanelMessageEntryWindow" promptText="авториз" HBox.hgrow="ALWAYS" onAction="#sendMsgAuthorization"/>
+        <PasswordField fx:id="passwordEntryWindowOfTheAuthorizationPanel" promptText="авториз" HBox.hgrow="ALWAYS" onAction="#sendMsgAuthorization"/>
+        <Button fx:id="theButtonForSendingAMessageToTheAuthorizationPanel" text="Отправить" prefWidth="110" onAction="#sendMsgAuthorization"/>
+
+    </HBox>
+
+    <HBox fx:id="messageSendingPanel" visible="false" managed="false">
+
+        <TextField fx:id="messageEntryWindowOfTheMessageSendingPanel" promptText="Введите сообщение" HBox.hgrow="ALWAYS" onAction="#sendMdgSendMsg"/>
+        <Button fx:id="theButtonForSendingAMessageInTheMessageSendingPanel" text="Отправить" onAction="#sendMdgSendMsg"/>
+
+    </HBox>
+
+    <HBox fx:id="loginChangePanel" visible="false" managed="false">
+
+        <TextField fx:id="theWindowForEnteringAnAuthorizedLogin" promptText="Введите старый логин" HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="theWindowForEnteringANewUsername" promptText="Введите новый логин" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="theButtonForSendingAMessageToTheLoginChangePanel" text="Отправить" prefWidth="110"/>
+
+    </HBox>
+
+    <HBox fx:id="exitPanel" visible="false" managed="false">
+
+        <TextField fx:id="loginEntryWindowOfTheExitPanel" promptText="выход" HBox.hgrow="ALWAYS"/>
+        <PasswordField fx:id="passwordEntryWindowOfTheExitPanel" promptText="выход" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="theButtonForSendingAMessageToTheExitPanel" text="Отправить" prefWidth="110"/>
+
+    </HBox>
+    <HBox fx:id="loginPanel" visible="true" managed="true" >
+
+        <TextField fx:id="loginInputWindowOfTheLoginPanel" promptText="вход" HBox.hgrow="ALWAYS" onAction="#sendMsgEnter"/>
+        <PasswordField fx:id="passwordEntryWindowOfTheLoginPanel" promptText="Отправить" prefWidth="110" onAction="#sendMsgEnter"/>
+        <Button fx:id="theButtonForSendingAMessageToTheLoginPanel" text="Отправить" prefWidth="110" onAction="#sendMsgEnter"/>
+    </HBox>
+
+</VBox>
